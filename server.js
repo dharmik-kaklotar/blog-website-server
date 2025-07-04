@@ -5,7 +5,6 @@ import cors from "cors";
 
 import userRoutes from "./router/user.route.js";
 import adminRoutes from "./router/admin.route.js";
-import blogRoutes from "./router/blog.route.js";
 
 const app = express();
 dotenv.config();
@@ -38,8 +37,6 @@ app.use("/api/user", userRoutes);
 // Admin Related Routes (Ex- Admin Login,Blog CRUD.)
 app.use("/api/admin", adminRoutes);
 
-// Blog Related Routes (Ex-Get All Blogs ,Like Blog etc.)
-app.use("/api/blog", blogRoutes);
 
 // Start server
 const PORT = process.env.PORT || 8000;

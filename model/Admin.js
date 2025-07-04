@@ -3,35 +3,41 @@ import db from "../config/db.js";
 
 class Admin extends Model {}
 
-Admin.init({
+Admin.init(
+  {
     id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
     email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    name: {
+      type: DataTypes.STRING,
     },
     password: {
-        type: DataTypes.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     created_at: {
-        type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     updated_at: {
-        type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     deleted_at: {
-        type: DataTypes.DATE
-    }
-}, {
+      type: DataTypes.DATE,
+    },
+  },
+  {
     sequelize: db.DB,
     modelName: "Admin",
     tableName: "admin",
-    timestamps: false
-})
+    timestamps: false,
+  }
+);
 
-export default Admin
+export default Admin;

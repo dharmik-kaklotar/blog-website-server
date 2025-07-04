@@ -1,6 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../config/db.js";
 import Category from "./Category.js";
+import Admin from "./Admin.js";
 
 class Blogs extends Model {}
 
@@ -49,10 +50,14 @@ Blogs.init(
   }
 );
 
-Blogs.hasOne({
-  Model:Category,
-  foreign_key:categoty_id,
-  as:'category'
-})
+Blogs.belongsTo(Category, {
+  foreignKey: "categoty_id", // fixed key name
+  as: "category",
+});
+Blogs.belongsTo(Admin, {
+  foreignKey: "admin_id", // fixed key name
+  as: "admin",
+});
+
 
 export default Blogs;
